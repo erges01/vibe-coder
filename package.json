@@ -1,27 +1,47 @@
 {
   "name": "vibe-coder",
-  "displayName": "vibe-coder",
+  "displayName": "VibeCoder",
   "description": "Strips the cringe AI formatting and emojis to make your code look raw and human.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.109.0"
   },
   "categories": [
+    "Formatters",
     "Other"
   ],
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:javascript"
-
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "vibe-coder.helloWorld",
-        "title": "Hello World"
+        "command": "vibe-coder.scrubNow",
+        "title": "VibeCoder: Scrub This File Now"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "VibeCoder",
+      "properties": {
+        "vibe-coder.enableEmojiNuke": {
+          "type": "boolean",
+          "default": true,
+          "description": "Weapon 1 — Emoji Nuke: Vaporizes emojis from your code on save."
+        },
+        "vibe-coder.enableSmartScrubber": {
+          "type": "boolean",
+          "default": true,
+          "description": "Weapon 2 — Smart Scrubber: Rips out useless AI over-explanations and cringe comments on save."
+        },
+        "vibe-coder.enableChaosEngine": {
+          "type": "boolean",
+          "default": false,
+          "description": "Weapon 3 — Chaos Engine: Randomly swaps quote styles to introduce a human, inconsistent aesthetic. Enable at your own risk."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
